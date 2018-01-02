@@ -12,12 +12,12 @@ Chromecast devices also don't seem to support HLS streams without an audio track
 ### Running
 
 #### Build the image
-`docker build . -t streamer`
+`docker build . -t gihad/streamer`
 
 #### Run with docker
 Need to expose the port, mount the volume and pass in parameters
 
-`docker run -e PARAMETERS="rtsp://username:password@192.168.1.183:554/cam/realmonitor?channel=1&subtype=1 frontyard rtsp://username:password@192.168.1.183:554/cam/realmonitor?channel=2&subtype=1 driveway" -v /tmp/stream:/tmp/stream -p 8080:80 streamer`
+`docker run -e PARAMETERS="rtsp://username:password@192.168.1.183:554/cam/realmonitor?channel=1&subtype=1 frontyard rtsp://username:password@192.168.1.183:554/cam/realmonitor?channel=2&subtype=1 driveway" -v /tmp/stream:/tmp/stream -p 8080:80 gihad/streamer`
 
 ### Paramaters format
 The parameters need to be passed in as a single environment variable called PARAMETERS separated by spaces in the following format:
@@ -26,7 +26,7 @@ The parameters need to be passed in as a single environment variable called PARA
 
 Input followed by stream name. In the example above 2 streams will be created but the program supports more than 2.
 
-### Accessing Stream
+### Accessing the stream(s)
 
 The streams will be accessible on port 8080 and the resource will be the chosen stream name suffixed with .m3u8.
 
