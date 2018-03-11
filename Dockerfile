@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM resin/raspberrypi3-python
 
 # Install nginx and ffmpeg
 RUN apk add --update nginx ffmpeg && rm -rf /var/cache/apk/* && mkdir /tmp/stream
