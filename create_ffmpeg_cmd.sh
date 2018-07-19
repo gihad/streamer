@@ -25,7 +25,7 @@ if [ -z "$AUDIO_RESULT"]; then
 fi
 
 if [ "$VIDEO_RESULT" != "h264" ]; then
-  DEFAULT_AUDIO=h264
+  DEFAULT_VIDEO=h264
 fi
 
 if [ "$INPUT" == rtsp://* ]; then
