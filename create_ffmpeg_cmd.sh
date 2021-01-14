@@ -20,7 +20,7 @@ if [ "$AUDIO_RESULT" != "aac" ]; then
 fi
 
 # Check if it's empty to add silent dummy stream
-if [ -z "$AUDIO_RESULT"]; then
+if [ -z "$AUDIO_RESULT" ]; then
   LACKING_AUDIO="-f lavfi -i aevalsrc=0"
 fi
 
@@ -32,6 +32,6 @@ if [ "$INPUT" == rtsp://* ]; then
   IS_RTSP="-rtsp_transport tcp"
 fi
 
-FFMPEG_CMD="ffmpeg -rtsp_transport tcp -i ${INPUT} ${LACKING_AUDIO} -acodec ${DEFAULT_AUDIO} -vcodec ${DEFAULT_VIDEO} -hls_list_size 2 -hls_init_time 1 -hls_time 1 -hls_flags delete_segments ${OUTPUT_PATH}${OUTPUT}.m3u8"
+FFMPEG_CMD="ffmpeg ${IS_RTSP} -i ${INPUT} ${LACKING_AUDIO} -acodec ${DEFAULT_AUDIO} -vcodec ${DEFAULT_VIDEO} -hls_list_size 2 -hls_init_time 1 -hls_time 1 -hls_flags delete_segments ${OUTPUT_PATH}${OUTPUT}.m3u8"
 
 echo "${FFMPEG_CMD}"
