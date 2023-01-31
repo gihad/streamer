@@ -2,6 +2,7 @@ FROM alpine:3.7
 
 # Install nginx and ffmpeg
 RUN apk add --update nginx ffmpeg && rm -rf /var/cache/apk/* && mkdir /tmp/stream
+RUN apk add curl
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 COPY ./startup.sh /
